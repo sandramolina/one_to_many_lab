@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS book;
-DROP TABLE IF EXISTS author;
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS authors;
 
 CREATE TABLE authors (
   id SERIAL PRIMARY KEY,
@@ -10,6 +10,5 @@ CREATE TABLE authors (
 CREATE TABLE books (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255),
-  author VARCHAR(255),
-  user_id INT NOT NULL REFERENCES authors(id)
+  author_id INT NOT NULL REFERENCES authors(id)
 );
