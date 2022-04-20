@@ -28,3 +28,8 @@ def add_book():
     book_object = Book(title, author_object)
     book_repository.save(book_object)
     return redirect('/')
+
+@books_bp.route('/<id>', methods=['GET'])
+def show_book(id):
+    book = book_repository.select(id)
+    return render_template('show.html', display_book = book)
