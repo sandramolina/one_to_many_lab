@@ -1,4 +1,5 @@
 from flask import Flask, redirect, render_template, Blueprint, request
+from models.book import Book
 import repositories.author_repository as author_repository
 import repositories.book_repository as book_repository
 
@@ -18,3 +19,12 @@ def delete(id):
 def new_book():
     authors = author_repository.select_all()
     return render_template('new_book.html', all_authors = authors)
+
+@books_bp.route('/addbook', methods = ['POST'])
+def add_book():
+    title = request.form['title']
+    author_id = request.form['author_id']
+    author_object = author_repository.select(author_id)
+    book_object = Book(title, author_object)
+    book_repository.save(book_object)
+    return redirect('/')
