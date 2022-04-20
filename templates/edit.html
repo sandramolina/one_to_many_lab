@@ -1,22 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/{{book.id}}" method="post">
-    <div class="mb-3">
-        <label for="title" class="form-label">Title:</label>
-        <input type="text" id="title" name="title" value="{{book.title}}" required autofocus>
-    </div>
-    <div class="mb-3">
-        <label for="author" class="form-label">Author:</label>
-        <select id="author" name="author_id">
-            {% for author in all_authors %}
-            <option value="{{ author.id }}"
-                {% if book.author.id== author.id %} selected="selected"{% endif %}>
-                {{ author.first_name }} {{ author.last_name }}
-            </option>
-            {% endfor %}
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Update Book</button>
-</form>
+<div class="card card-details">
+    <form action="/{{book.id}}" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" id="title" name="title" value="{{book.title}}" required autofocus>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author:</label>
+            <select id="author" name="author_id">
+                {% for author in all_authors %}
+                <option value="{{ author.id }}"
+                    {% if book.author.id== author.id %} selected="selected"{% endif %}>
+                    {{ author.first_name }} {{ author.last_name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Book</button>
+    </form>
+</div>
 {% endblock %}

@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="card card-details">
 <form action="/addbook" method="post">
-    <div>
-        <label for="title">Title:</label>
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
         <input type="text" id="title" name="title" placeholder="Title" required autofocus>
     </div>
-    <div>
-        <label for="author">Author:</label>
+    <div class="mb-3">
+        <label for="author" class="form-label">Author:</label>
         <select id="author_id" name="author_id">
         
         {% for author in all_authors %}
@@ -17,7 +18,8 @@
         </select>
     </div>
 
-    <button type="submit">Add Book</button>
+    <button type="submit" class="btn btn-primary">Add Book</button>
 
 </form>
+</div>
 {% endblock %}

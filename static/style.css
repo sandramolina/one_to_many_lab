@@ -1,9 +1,10 @@
 body {
     background-color: bisque !important;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-ul {
-    list-style: none;
+.card-details {
+    width: 18rem;
+    background-color: rgb(185, 181, 215) !important;
+    margin: 2vw;
+    padding: 1vw;
 }
-
