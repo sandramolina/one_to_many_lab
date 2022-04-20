@@ -2,7 +2,8 @@
 {% block content %}
 {% for book in all_books %}
 <ul>
-    <li>{{book.title}}</li>
+    <div class="container-book-list">
+    <li class="book-title">{{book.title}}</li>
     <li>{{book.author.first_name}} {{book.author.last_name}}</li>
     <form action="/{{book.id}}/delete" method="post">
         <button>
@@ -11,6 +12,7 @@
         <br>
         <a href="/{{book.id}}">Further details</a>
     </form>
+    </div>
 </ul>
 
 {% endfor %}
