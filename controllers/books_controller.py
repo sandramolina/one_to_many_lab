@@ -13,3 +13,8 @@ def home():
 def delete(id):
     book_repository.delete(id)
     return redirect('/')
+
+@books_bp.route('/new')
+def new_book():
+    authors = author_repository.select_all()
+    return render_template('new_book.html', all_authors = authors)

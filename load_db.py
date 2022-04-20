@@ -15,17 +15,20 @@ author_repository.save(author1)
 
 #author_repository.delete(5)
 
-# author2 = Author("Stephen", "King")
-# author_repository.save(author2)
+author2 = Author("Stephen", "King")
+author_repository.save(author2)
 #author2.last_name = "Bachman"
 
 #author_repository.update(author2)
 
-# book1 = Book("Jane Eyre", author1)
-# book_repository.save(book1)
+book1 = Book("Jane Eyre", author1)
+book_repository.save(book1)
 
-# book2 = Book("The Shinning", author2)
-# book_repository.save(book2)
+book2 = Book("The Shinning", author2)
+book_repository.save(book2)
+
+book3 = Book("Pride and Prejudice", author1)
+book_repository.save(book3)
 
 #print(book_repository.select_all())
 
