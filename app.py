@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-# from controllers.tasks_controller import tasks_blueprint
+from flask import Flask
+from controllers.books_controller import books_bp
 app = Flask(__name__)
 
-# app.register_blueprint(tasks_blueprint)
+app.register_blueprint(books_bp)
