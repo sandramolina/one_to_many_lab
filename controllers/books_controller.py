@@ -33,3 +33,18 @@ def add_book():
 def show_book(id):
     book = book_repository.select(id)
     return render_template('show.html', display_book = book)
+
+@books_bp.route('/<id>', methods = ['POST'])
+def edit_book_function(id):
+    title = request.form['title']
+    author_id = request.form['author_id']
+    author_object = author_repository.select(author_id)
+    book_to_update = Book(title, author_object, id)
+    book_repository.update(book_to_update)
+    return redirect('/')
+
+@books_bp.route('/<id>/edit', methods=['GET'])
+def edit_book(id):
+    book  = book_repository.select(id)
+    author_list = author_repository.select_all()
+    return render_template('/edit.html', book = book, all_authors = author_list)
